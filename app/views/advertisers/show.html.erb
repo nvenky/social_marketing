@@ -1,16 +1,13 @@
 
 <%- model_class = Advertiser -%>
 <div class="page-header">
-<h1><%= @advertiser.company_name %></h1>
+    <h1><%= @advertiser.company_name %></h1>
 </div>
 
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              advertisers_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_advertiser_path(@advertiser), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              advertiser_path(@advertiser),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+<% if !@advertiser.campaigns.empty? %>
+    <%= render @advertiser.campaigns %>
+
+<% else%>       
+    <%= link_to 'Create Campaign', new_advertiser_campaign_path %>     
+<% end %>       

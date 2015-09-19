@@ -1,3 +1,3 @@
 class Advertiser < ActiveRecord::Base
-  has_many :campaign
+  has_many :campaigns
 end

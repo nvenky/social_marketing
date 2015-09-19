@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :campaigns
-  resources :advertisers
+  resources :advertisers do 
+    resources :campaigns
+  end
+  
   resources :influencers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

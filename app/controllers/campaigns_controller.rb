@@ -24,11 +24,11 @@ class CampaignsController < ApplicationController
   # POST /campaigns
   # POST /campaigns.json
   def create
-    @campaign = Campaign.new(campaign_params)
+      @campaign = Campaign.new(campaign_params.merge({advertiser_id: params[:advertiser_id]}))
 
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to @campaign, notice: 'Campaign was successfully created.' }
+          format.html { redirect_to advertiser_campaign_path(@campaign.advertiser_id, @campaign), notice: 'Campaign was successfully created.' }
         format.json { render :show, status: :created, location: @campaign }
       else
         format.html { render :new }
