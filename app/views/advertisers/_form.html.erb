@@ -1,0 +1,45 @@
+<%= form_for @advertiser, :html => { :class => "form-horizontal advertiser" } do |f| %>
+
+    <% if @advertiser.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@advertiser.errors.count, "error") %> prohibited this advertiser from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @advertiser.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :company_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :company_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertiser[:company_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :contact_person, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contact_person, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertiser[:contact_person]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :website, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :website, :class => 'form-control' %>
+    </div>
+    <%= error_span(@advertiser[:website]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            advertisers_path, :class => 'btn btn-default' %>
+
+<% end %>

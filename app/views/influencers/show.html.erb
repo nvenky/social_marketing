@@ -1,0 +1,31 @@
+<%- model_class = Influencer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @influencer.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @influencer.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @influencer.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:facebook_followers) %>:</strong></dt>
+  <dd><%= @influencer.facebook_followers %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:twitter_followers) %>:</strong></dt>
+  <dd><%= @influencer.twitter_followers %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:youtube_followers) %>:</strong></dt>
+  <dd><%= @influencer.youtube_followers %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:instagram_followers) %>:</strong></dt>
+  <dd><%= @influencer.instagram_followers %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              influencers_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_influencer_path(@influencer), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              influencer_path(@influencer),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
