@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<%= yield %>
+<%= render partial: '/layouts/nav_bar' %>
+<div class="container">
+    <%= yield %>
+</div>
 
 </body>
 </html>
