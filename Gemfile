@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use postgresql as the database for Active Record
-gem 'pg'
+# Use mysql as the database for Active Record
+gem 'mysql2', '~> 0.3.13'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,6 +32,9 @@ gem 'omniauth'
 #gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #gem 'omniauth-linkedin'
+
+# Timezone
+gem 'tzinfo-data'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -13,55 +13,52 @@
 
 ActiveRecord::Schema.define(version: 20150919061624) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "advertisers", force: :cascade do |t|
-    t.string   "company_name"
-    t.string   "contact_person"
-    t.string   "website"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "company_name",   limit: 255
+    t.string   "contact_person", limit: 255
+    t.string   "website",        limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "identities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",    limit: 4
+    t.string   "provider",   limit: 255
+    t.string   "uid",        limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "influencers", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "description"
-    t.integer  "facebook_followers"
-    t.integer  "twitter_followers"
-    t.integer  "youtube_followers"
-    t.integer  "instagram_followers"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "user_id"
+    t.string   "first_name",          limit: 255
+    t.string   "last_name",           limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "facebook_followers",  limit: 4
+    t.integer  "twitter_followers",   limit: 4
+    t.integer  "youtube_followers",   limit: 4
+    t.integer  "instagram_followers", limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "user_id",             limit: 4
   end
 
   add_index "influencers", ["user_id"], name: "index_influencers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
