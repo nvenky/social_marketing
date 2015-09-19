@@ -27,6 +27,11 @@ gem "twitter-bootstrap-rails"
 gem "font-awesome-rails"
 gem 'normalize-rails'
 
+gem 'devise'
+gem 'omniauth'
+#gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+#gem 'omniauth-linkedin'
 
 # Timezone
 gem 'tzinfo-data'
