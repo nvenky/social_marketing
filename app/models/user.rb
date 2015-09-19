@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  enum usertype: [ :influencer, :advertiser ]
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
