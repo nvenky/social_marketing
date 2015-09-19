@@ -19,7 +19,7 @@ Fabricator(:user) do
     email { Faker::Internet.email }
     password { "testtest" }
     password_confirmation { |attrs| attrs[:password] }
-    usertype { "influencer" }
+    usertype { ["influencer", "advertiser"].sample }
 end
 
 Fabricator(:advertiser) do
