@@ -170,9 +170,7 @@ influencers = Influencer.create([
 ])
 
 
-########################################################################################################
-
-users = User.create!([
+User.create!([
   {
     email: 'john@doe.com',
     password: 'johnjohn',
@@ -186,3 +184,23 @@ users = User.create!([
     usertype: 'advertiser',
   },
 ])
+
+Advertiser.create!([
+    { 
+        company_name: "Nike", 
+        contact_person: "venky@nike.com", 
+        website: "www.nike.com"
+    },
+    {
+        company_name: "Woolworths", 
+        contact_person: "abc@woolies.com", 
+        website: "www.woolies.com"
+    }])
+
+Campaign.create!([
+    {
+        advertiser: Advertiser.where(company_name: 'Nike').first,
+        price: 300, 
+        description: "Womens Sports shoe", 
+        industry: "Health"
+    }])
