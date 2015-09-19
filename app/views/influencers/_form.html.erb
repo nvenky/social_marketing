@@ -1,0 +1,73 @@
+<%= form_for @influencer, :html => { :class => "form-horizontal influencer" } do |f| %>
+
+    <% if @influencer.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@influencer.errors.count, "error") %> prohibited this influencer from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @influencer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:first_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:last_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :facebook_followers, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :facebook_followers, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:facebook_followers]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :twitter_followers, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :twitter_followers, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:twitter_followers]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :youtube_followers, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :youtube_followers, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:youtube_followers]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :instagram_followers, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :instagram_followers, :class => 'form-control' %>
+    </div>
+    <%= error_span(@influencer[:instagram_followers]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            influencers_path, :class => 'btn btn-default' %>
+
+<% end %>
