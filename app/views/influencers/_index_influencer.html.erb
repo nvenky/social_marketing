@@ -1,16 +1,22 @@
 <%- model_class = Influencer -%>
-<div class="card">
-  <img class="card-img-top" data-src="holder.js/100%x180/" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title"><%= @influencer.first_name %> <%= @influencer.last_name %></h4>
-    <p class="card-text"><%= @influencer.description %></p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= @influencer.facebook_followers %></li>
-    <li class="list-group-item"><%= @influencer.twitter_followers %></li>
-    <li class="list-group-item"><%= @influencer.youtube_followers %></li>
-    <li class="list-group-item"><%= @influencer.instagram_followers %></li>
-  </ul>
-    <a href="#" class="btn btn-primary">Button</a>
+<div class="col-md-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <img data-src="holder.js/100%x180/" alt="Profile photo">
+    </div>
+    <br>
+    <div class="panel-body">
+      <h4><%= influencer.first_name %> <%= influencer.last_name %></h4>
+      <%= influencer.description %>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Facebook followers: <%= influencer.facebook_followers %></li>
+        <li class="list-group-item">Twitter followers: <%= influencer.twitter_followers %></li>
+        <li class="list-group-item">Youtube followers: <%= influencer.youtube_followers %></li>
+        <li class="list-group-item">Instagram followers: <%= influencer.instagram_followers %></li>
+      </ul>
+      <div>
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
   </div>
 </div>
