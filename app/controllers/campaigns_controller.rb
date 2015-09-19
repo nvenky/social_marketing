@@ -7,6 +7,10 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.all
   end
 
+  def all
+    @campaigns = Campaign.all
+  end
+
   # GET /campaigns/1
   # GET /campaigns/1.json
   def show
