@@ -5,197 +5,44 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Fabricator(:influencer) do
+    first_name { Faker::Internet.user_name }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    facebook_followers { Faker::Number.number(4) }
+    twitter_followers { Faker::Number.number(4) }
+    youtube_followers { Faker::Number.number(4) }
+    instagram_followers { Faker::Number.number(4) }
+end
 
-influencers = Influencer.create([
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-  {
-    first_name: "John",
-    last_name: "Doe",
-    facebook_followers: 5,
-    twitter_followers: 5,
-    youtube_followers: 5,
-    instagram_followers: 5,
-  },
-  {
-    first_name: "Foo",
-    last_name: "Bar",
-    facebook_followers: 10,
-    twitter_followers: 10,
-    youtube_followers: 10,
-    instagram_followers: 10,
-  },
-])
+Fabricator(:user) do
+    email { Faker::Internet.email }
+    password { "testtest" }
+    password_confirmation { |attrs| attrs[:password] }
+    usertype { "influencer" }
+end
 
+Fabricator(:advertiser) do
+    company_name { Faker::Company.name }
+    contact_person { Faker::Internet.email }
+    website { Faker::Internet.url }
+end
 
-User.create!([
-  {
-    email: 'john@doe.com',
-    password: 'johnjohn',
-    password_confirmation: 'johnjohn',
-    usertype: 'influencer',
-  },
-  {
-    email: 'telstra@you.com',
-    password: 'telstrayou',
-    password_confirmation: 'telstrayou',
-    usertype: 'advertiser',
-  },
-])
+Fabricator(:campaign) do
+    advertiser { Advertiser.take(3).sample }
+    price { Faker::Number.number(4) }
+    description { Faker::Company.catch_phrase }
+    industry { Faker::Commerce.department }
+end
 
-Advertiser.create!([
-    { 
-        company_name: "Nike", 
-        contact_person: "venky@nike.com", 
-        website: "www.nike.com"
-    },
-    {
-        company_name: "Woolworths", 
-        contact_person: "abc@woolies.com", 
-        website: "www.woolies.com"
-    }])
+100.times { Fabricate(:influencer) }
+
+10.times {Fabricate(:user)}
+
+10.times {Fabricate(:advertiser)}
+
+50.times {Fabricate(:campaign)}
+
 
 Campaign.create!([
     {

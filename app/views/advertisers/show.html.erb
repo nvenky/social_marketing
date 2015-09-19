@@ -8,5 +8,5 @@
 <% if !@advertiser.campaigns.empty? %>
     <%= render @advertiser.campaigns %>
 <% else%>       
-    <%= link_to 'Create Campaign', new_advertiser_campaign_path %>     
+    <%= link_to 'Create Campaign', new_advertiser_campaign_path(@advertiser) %>     
 <% end %>       
