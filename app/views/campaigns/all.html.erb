@@ -4,5 +4,5 @@
 </div>
 
 <% @campaigns.each do |campaign| %>
-  <%= render campaign %>
+  <%= render partial: 'campaign_influencer', locals: {campaign: campaign} %>
 <% end %>

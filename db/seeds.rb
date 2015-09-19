@@ -42,12 +42,3 @@ end
 10.times {Fabricate(:advertiser)}
 
 50.times {Fabricate(:campaign)}
-
-
-Campaign.create!([
-    {
-        advertiser: Advertiser.where(company_name: 'Nike').first,
-        price: 300, 
-        description: "Womens Sports shoe", 
-        industry: "Health"
-    }])
