@@ -168,3 +168,21 @@ influencers = Influencer.create([
     instagram_followers: 10,
   },
 ])
+
+
+########################################################################################################
+
+users = User.create!([
+  {
+    email: 'john@doe.com',
+    password: 'johnjohn',
+    password_confirmation: 'johnjohn',
+    usertype: 'influencer',
+  },
+  {
+    email: 'telstra@you.com',
+    password: 'telstrayou',
+    password_confirmation: 'telstrayou',
+    usertype: 'advertiser',
+  },
+])
