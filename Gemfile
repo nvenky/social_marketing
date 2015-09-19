@@ -27,6 +27,11 @@ gem "twitter-bootstrap-rails"
 gem "font-awesome-rails"
 gem 'normalize-rails'
 
+gem 'devise'
+gem 'omniauth'
+#gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+#gem 'omniauth-linkedin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
