@@ -9,10 +9,10 @@ Fabricator(:influencer) do
     first_name { Faker::Internet.user_name }
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    facebook_followers { Faker::Number.number(4) }
-    twitter_followers { Faker::Number.number(4) }
-    youtube_followers { Faker::Number.number(4) }
-    instagram_followers { Faker::Number.number(4) }
+    facebook_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
+    twitter_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
+    youtube_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
+    instagram_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
 end
 
 Fabricator(:user) do
