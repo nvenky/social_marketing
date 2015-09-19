@@ -1,12 +1,12 @@
 <!-- Navigation -->
-<nav class="navbar navbar-custom" role="navigation">
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="/">
-                <i class="fa fa-play-circle"></i>  <span class="light">ImpactMe</span>
+            <a class="navbar-brand" href="/">
+                <i class="fa fa-play-circle"></i>  <span>ImpactMe</span>
             </a>
         </div>
 
@@ -28,11 +28,12 @@
                 <% end %>
 
                 <% if !signed_in? %>
-                    <li><a href="/users/sign_in">Log In</a></li>
-                    <li><a href="/users/sign_up">Sign Up</a></li>
                     <li><a class="page-scroll" href="#why">Why?</a></li>
                     <li><a class="page-scroll" href="#about">About</a></li>
+                    <li><a class="page-scroll" href="#pricing">Pricing</a></li>
                     <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    <li><a href="/users/sign_up">Sign Up</a></li>
+                    <li><a href="/users/sign_in">Log In</a></li>
                 <% end %>
             </ul>
         </div>
