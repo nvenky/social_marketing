@@ -3,6 +3,12 @@
     <h1><%= @advertiser.company_name %></h1>
 </div>
 
+<% if @advertiser.company_name == 'UMate' %>
+  <div><img class='profile-pic' src="<%= image_url("umate.jpg")%>" alt="Umate"></div>
+<% elsif @advertiser.company_name == 'Real Edge Nutrition' %>
+  <div><img class='profile-pic' src="<%= image_url("real_edge_nutrition.png")%>" alt="Umate"></div>
+<% end %>
+
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
   <dd><%= @advertiser.contact_person %></dd>

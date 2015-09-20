@@ -44,6 +44,11 @@ Fabricator(:campaign) do
     description { Faker::Lorem.paragraph[0..250]}
 end
 
+david = User.create!({email: 'david@ibtuition.com', password: 'testtest', password_confirmation: 'testtest', usertype: 'influencer'})
+Influencer.create!({first_name: 'David', last_name: 'Gai', description: 'lorem ipsum', youtube_followers: 12127, minimum_price: 100, user: david})
+sreejay = User.create!({email: 'sreejay@gmail.com', password: 'testtest', password_confirmation: 'testtest', usertype: 'influencer'})
+Influencer.create!({first_name: 'Sreejay', last_name: 'Santosh', description: 'lorem ipsum', instagram_followers: 2848, minimum_price: 100, user: sreejay})
+
 umate = User.create!({email: 'sam.sweeny@umate.com.au', password: 'testtest', password_confirmation: 'testtest', usertype: 'advertiser'})
 Advertiser.create!({company_name: 'UMate', website: 'www.umate.com.au', contact_person: 'sam.sweeny@umate.com.au', user: umate})
 ibblueprint = User.create!({email: 'sam.sweeny@ibblueprint.com', password: 'testtest', password_confirmation: 'testtest', usertype: 'advertiser'})
@@ -51,10 +56,6 @@ Advertiser.create!({company_name: 'IB Blue Print', website: 'ibblueprint.com', c
 nutrition = User.create!({email: 'van@realedgenutrition.com', password: 'testtest', password_confirmation: 'testtest', usertype: 'advertiser'})
 Advertiser.create!({company_name: 'Real Edge Nutrition', website: 'realedgenutrition.com.au', contact_person: 'van@realedgenutrition.com', user: nutrition})
 
-david = User.create!({email: 'david@ibtuition.com', password: 'testtest', password_confirmation: 'testtest', usertype: 'influencer'})
-Influencer.create!({first_name: 'David', last_name: 'Gai', description: 'lorem ipsum', youtube_followers: 12127, minimum_price: 100, user: david})
-sreejay = User.create!({email: 'sreejay@gmail.com', password: 'testtest', password_confirmation: 'testtest', usertype: 'influencer'})
-Influencer.create!({first_name: 'Sreejay', last_name: 'Santosh', description: 'lorem ipsum', instagram_followers: 2848, minimum_price: 100, user: sreejay})
 
 100.times { Fabricate(:influencer) }
 
