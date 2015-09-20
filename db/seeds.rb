@@ -44,6 +44,9 @@ Fabricator(:campaign) do
     description { Faker::Lorem.paragraph }
 end
 
+Advertiser.create!({company_name: 'UMate', website: 'www.umate.com.au', contact_person: 'sam.sweeny@umate.com.au'})
+Advertiser.create!({company_name: 'IB Blue Print', website: 'www.umate.com.au', contact_person: 'sam.sweeny@umate.com.au'})
+
 100.times { Fabricate(:influencer) }
 
 #10.times {Fabricate(:user)}
