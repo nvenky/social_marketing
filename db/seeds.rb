@@ -13,19 +13,20 @@ Fabricator(:influencer) do
     twitter_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     youtube_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     instagram_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
+    user { Fabricate(:user, usertype: 'influencer')}
 end
 
 Fabricator(:user) do
     email { Faker::Internet.email }
     password { "testtest" }
     password_confirmation { |attrs| attrs[:password] }
-    usertype { ["influencer", "advertiser"].sample }
 end
 
 Fabricator(:advertiser) do
     company_name { Faker::Company.name }
     contact_person { Faker::Internet.email }
     website { Faker::Internet.url }
+    user { Fabricate(:user, usertype: 'advertiser')}
 end
 
 Fabricator(:campaign) do
@@ -37,7 +38,7 @@ end
 
 100.times { Fabricate(:influencer) }
 
-10.times {Fabricate(:user)}
+#10.times {Fabricate(:user)}
 
 10.times {Fabricate(:advertiser)}
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919224931) do
+ActiveRecord::Schema.define(version: 20150920002908) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "company_name",   limit: 255
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20150919224931) do
     t.string   "website",        limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "user_id",        limit: 4
   end
+
+  add_index "advertisers", ["user_id"], name: "index_advertisers_on_user_id", using: :btree
 
   create_table "campaigns", force: :cascade do |t|
     t.integer  "price",         limit: 4
@@ -84,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150919224931) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "advertisers", "users"
   add_foreign_key "campaigns", "advertisers"
   add_foreign_key "identities", "users"
   add_foreign_key "influencers", "users"
