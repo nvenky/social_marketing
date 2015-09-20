@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <div class="panel">
     <div class="panel-body">
-      <div style='text-align:center'><img class='profile-pic' src="<%= image_url("campaigns/campaign (#{campaign.id}).jpg")%>" alt="Campaign photo"></div>
+      <div style='text-align:center'><img class='profile-pic' src="<%= image_url("campaigns/campaign (#{campaign.id % 50}).jpg")%>" alt="Campaign photo"></div>
       <br>
       <div style='text-align:center'><h4><%= link_to truncate(campaign.title, length: 24, separator: ' '), advertiser_campaign_path(campaign.advertiser, campaign)%></h4></div>
       <p>Budget: $<%=campaign.price%></p>

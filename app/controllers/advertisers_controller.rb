@@ -13,7 +13,7 @@ class AdvertisersController < ApplicationController
   end
 
   def main
-      redirect_to advertiser_path(Advertiser.find(3))  
+      redirect_to advertiser_path(Advertiser.where(company_name: 'Real Edge Nutrition').first)  
   end
 
   # GET /advertisers/new

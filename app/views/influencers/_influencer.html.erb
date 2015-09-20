@@ -1,7 +1,7 @@
 <div class="col-md-4">
     <div style='text-align: center' class="panel">
         <div class="panel-body">
-            <p ><img class='profile-pic' src="<%= image_url("profiles/Profile#{influencer.user.id}.jpg")%>" alt="Profile photo"></p>
+            <p ><img class='profile-pic' src="<%= image_url("profiles/Profile#{influencer.user.id % 100 }.jpg")%>" alt="Profile photo"></p>
             <h3><a href=<%= influencer_path(influencer) %> ><%= influencer.first_name %> <%= influencer.last_name %></h3>
             <p>Minimum $<%=influencer.minimum_price%></p>
             <ul class="list-group list-group-flush">
