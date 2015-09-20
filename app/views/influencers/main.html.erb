@@ -1,23 +1,32 @@
-<%- model_class = Influencer -%>
-<div class="page-header">
-  <h1>Invitations Pending</h1>
+<div class='page-header'>
+    <h2>Welcome Sreejay</h2>
+</div>    
+
+<div class="panel row">
+    <h4>Invitations Pending</h4>
+    <% @invited_campaigns.each do |campaign| %>
+        <%= render partial: 'campaigns/campaign_influencer', locals: {campaign: campaign, campaign_type: 'invited'} %>
+    <% end %>
 </div>
 
-<div class="page-header">
-  <h1>Campaigns Applied &amp; Pending</h1>
+<div class="panel row">
+    <h4>Campaigns Applied &amp; Pending</h4>
+    <% @applied_campaigns.each do |campaign| %>
+        <%= render partial: 'campaigns/campaign_influencer', locals: {campaign: campaign, campaign_type: 'applied'} %>
+    <% end %>  
 </div>
 
-<div class="page-header">
-  <h1>Recommended Campaigns</h1>
-  <% @recommended_campaigns.each do |campaign| %>
-    <%= render partial: 'campaigns/campaign_influencer', locals: {campaign: campaign} %>
-  <% end %>
-  <div style="text-align:center;"><button class="btn btn-lg btn-success" href="/campaigns">All Campaigns</button></div>
+<div class="panel row">
+    <h4>Recommended Campaigns</h4>
+    <% @recommended_campaigns.each do |campaign| %>
+        <%= render partial: 'campaigns/campaign_influencer', locals: {campaign: campaign, campaign_type: 'recommended'} %>
+    <% end %>
+    <div style="text-align:center;"><button class="btn btn-lg btn-success" href="/campaigns">View all Campaigns</button></div>
 </div>
 
-<div class="page-header">
-  <h1>My Previous Campaigns</h1>
-  <% @previous_campaigns.each do |campaign| %>
-    <%= render partial: 'campaigns/campaign_previous', locals: {campaign: campaign} %>
-  <% end %>
+<div class="panel row">
+    <h4>My Previous Campaigns</h4>
+    <% @previous_campaigns.each do |campaign| %>
+        <%= render partial: 'campaigns/campaign_previous', locals: {campaign: campaign} %>
+    <% end %>
 </div>

@@ -8,10 +8,10 @@ class InfluencersController < ApplicationController
   end
 
   def main
-    @recommended_campaigns = Campaign.all.sample(3)
-    @previous_campaigns = Campaign.all.sample(3)
-    @campaigns_applied;
-    @campaigns_invited;
+    @recommended_campaigns = Campaign.all.sample(6)
+    @previous_campaigns = Campaign.all.sample(2)
+    @invited_campaigns = Campaign.all.sample(1)
+    @applied_campaigns = Campaign.all.sample(2) 
   end
 
   # GET /influencers/1

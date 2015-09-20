@@ -8,7 +8,14 @@
       <p>Price: $<%=campaign.price%></p>
       <p><div class="label label-primary"><%=campaign.industry%></div></p>
       <div>
-        <p style="text-align:center;"><a href="#" class="btn btn-info " role="button">I'm interested</a>
+          <% if campaign_type == 'invited' %>  
+            <p style="text-align:center;" class='col-lg-3'><a href="#" class="btn btn-success" role="button">Accept</a>
+            <p style="text-align:center;" class='col-lg-3 col-lg-offset-1'><a href="#" class="btn btn-danger" role="button">Decline</a>
+          <% elsif campaign_type == 'applied' %>  
+            <p style="text-align:center;"><a href="#" class="btn btn-danger" role="button">Withdraw</a>
+          <% else%>   
+            <p style="text-align:center;"><a href="#" class="btn btn-info " role="button">I'm interested</a>
+          <% end %>  
       </div>
     </div>
   </div>
