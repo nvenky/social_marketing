@@ -18,6 +18,13 @@
     <% end %>
 </div>
 <br/>
+<div class='interested_influencers row'>
+    <h3>Interested influencers</h3>
+    <% @interested_influencers.each do |influencer| %>
+        <%= render influencer, influencer_type: 'interested', campaign_id: @campaign.id %>
+    <% end %>
+</div>
+<br/>
 <div class='recommender_influencers row'>
     <h3>Recommended influencers</h3>
     <% @recommended_influencers.each do |influencer| %>

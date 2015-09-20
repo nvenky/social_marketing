@@ -1,22 +1,27 @@
 <div class="col-md-4">
-  <div style='text-align: center' class="panel">
-    <div class="panel-body">
-      <p ><img class='profile-pic' src="<%= image_url("profiles/Profile#{influencer.user.id}.jpg")%>" alt="Profile photo"></p>
-      <h3><%= influencer.first_name %> <%= influencer.last_name %></h3>
-      <p>Minimum $<%=influencer.minimum_price%></p>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Facebook followers: <%= influencer.facebook_followers %></li>
-        <li class="list-group-item">Twitter followers: <%= influencer.twitter_followers %></li>
-        <li class="list-group-item">Youtube followers: <%= influencer.youtube_followers %></li>
-        <li class="list-group-item">Instagram followers: <%= influencer.instagram_followers %></li>
-      </ul>
-      <div>
-          <% if influencer_type == 'shortlisted' %>
-            <a href="#" class="btn btn-danger">Remove</a>
-          <% else%>  
-            <a href="<%= new_campaign_influencer_path(campaign_id: campaign_id, influencer_id: influencer.id) %>" class="btn btn-primary">Shortlist me</a>
-          <% end %>  
-      </div>
+    <div style='text-align: center' class="panel">
+        <div class="panel-body">
+            <p ><img class='profile-pic' src="<%= image_url("profiles/Profile#{influencer.user.id}.jpg")%>" alt="Profile photo"></p>
+            <h3><a href=<%= influencer_path(influencer) %> ><%= influencer.first_name %> <%= influencer.last_name %></h3>
+            <p>Minimum $<%=influencer.minimum_price%></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Facebook followers: <%= influencer.facebook_followers %></li>
+                <li class="list-group-item">Twitter followers: <%= influencer.twitter_followers %></li>
+                <li class="list-group-item">Youtube followers: <%= influencer.youtube_followers %></li>
+                <li class="list-group-item">Instagram followers: <%= influencer.instagram_followers %></li>
+            </ul>
+            <div>
+                <% if defined?(influencer_type) %>
+                    <% if influencer_type == 'shortlisted' %>
+                        <a href="#" class="btn btn-danger">Remove</a>
+                    <% elsif influencer_type == 'interested' %>
+                        <a href="#" class="btn btn-success col-lg-4">Accept</a>
+                        <a href="#" class="btn btn-danger col-lg-4 col-lg-offset-1">Decline</a>
+                    <% else%>  
+                        <a href="<%= new_campaign_influencer_path(campaign_id: campaign_id, influencer_id: influencer.id) %>" class="btn btn-primary">Shortlist me</a>
+                    <% end %>  
+                <% end %>  
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -13,9 +13,15 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns/1
   # GET /campaigns/1.json
-  def show
-      @recommended_influencers = Influencer.all.sample(6)
-      @shortlisted_influencers = @campaign.shortlisted_influencers
+  def show        
+      shortlisted_influencers = @campaign.shortlisted_influencers
+      sreejay = Influencer.find(2)
+      rec_inf = []
+      rec_inf << sreejay unless shortlisted_influencers.member?(sreejay)
+      rec_inf << (Influencer.all - shortlisted_influencers).sample(5)
+      @recommended_influencers = rec_inf 
+      @shortlisted_influencers = shortlisted_influencers
+      @interested_influencers = Influencer.all.sample(2)
   end
 
   # GET /campaigns/new

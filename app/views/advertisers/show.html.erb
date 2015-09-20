@@ -16,8 +16,9 @@
   <dd><%= @advertiser.website %></dd>
 </dl>
 
+<p class='row' style='text-align: right'><%= link_to 'Create Campaign', new_advertiser_campaign_path(@advertiser), class: 'btn btn-primary ' %></p>
+<h2>My Campaigns</h2>
 <% if !@advertiser.campaigns.empty? %>
     <%= render @advertiser.campaigns %>
 <% else%>
-    <%= link_to 'Create Campaign', new_advertiser_campaign_path(@advertiser) %>
 <% end %>

@@ -14,7 +14,7 @@ Campaign.delete_all
 Fabricator(:influencer) do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    description { Faker::Lorem.paragraph }
+    description { Faker::Lorem.paragraph[0..250] }
     facebook_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     twitter_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     youtube_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
@@ -38,7 +38,7 @@ end
 
 Fabricator(:campaign) do
     title { Faker::Company.catch_phrase }
-    advertiser { Advertiser.take(3).sample }
+    advertiser { Advertiser.take(10).sample }
     price { [Faker::Number.number(3), Faker::Number.number(4)].sample }
     industry { Faker::Commerce.department }
     description { Faker::Lorem.paragraph[0..250]}
@@ -57,7 +57,7 @@ nutrition = User.create!({email: 'van@realedgenutrition.com', password: 'testtes
 Advertiser.create!({company_name: 'Real Edge Nutrition', website: 'realedgenutrition.com.au', contact_person: 'van@realedgenutrition.com', user: nutrition})
 
 
-100.times { Fabricate(:influencer) }
+80.times { Fabricate(:influencer) }
 
 #10.times {Fabricate(:user)}
 
