@@ -15,6 +15,7 @@ Fabricator(:influencer) do
     first_name { Faker::Internet.user_name }
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
+    description { Faker::Lorem.paragraph }
     facebook_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     twitter_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     youtube_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }

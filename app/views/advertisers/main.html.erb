@@ -1,0 +1,23 @@
+<%- model_class = Advertiser -%>
+<div class="page-header">
+  <h1>Influencers Interested</h1>
+</div>
+
+<div class="page-header">
+  <h1>Influencers Invited &amp; Pending</h1>
+</div>
+
+<div class="page-header">
+  <h1>Recommended Influencers</h1>
+  <% @recommended_influencers.each do |influencer| %>
+    <%= render partial: 'influencers/influencer', locals: {influencer: influencer} %>
+  <% end %>
+  <div style="text-align:center;"><button class="btn btn-lg btn-success" href="/influencers">All Influencers</button></div>
+</div>
+
+<div class="page-header">
+  <h1>My Previous Campaigns</h1>
+  <% @advertiser.campaigns do |campaign| %>
+    <%= render partial: 'campaigns/campaign_previous', locals: {campaign: campaign} %>
+  <% end %>
+</div>

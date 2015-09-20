@@ -1,13 +1,10 @@
 <%- model_class = Influencer -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @influencer.first_name %> <%= @influencer.last_name %></h1>
 </div>
+<p><img class='profile-pic' src="<%= image_url("profiles/Profile#{@influencer.user.id}.jpg")%>" alt="Profile photo"></p>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
-  <dd><%= @influencer.first_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
-  <dd><%= @influencer.last_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @influencer.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:facebook_followers) %>:</strong></dt>

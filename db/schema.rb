@@ -56,13 +56,13 @@ ActiveRecord::Schema.define(version: 20150920015329) do
   create_table "influencers", force: :cascade do |t|
     t.string   "first_name",          limit: 255
     t.string   "last_name",           limit: 255
-    t.text     "description",         limit: 65535
+    t.string   "description",         limit: 255
     t.integer  "facebook_followers",  limit: 4
     t.integer  "twitter_followers",   limit: 4
     t.integer  "youtube_followers",   limit: 4
     t.integer  "instagram_followers", limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "user_id",             limit: 4
     t.integer  "minimum_price",       limit: 4
   end

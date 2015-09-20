@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :advertisers do
     resources :campaigns
   end
+  get '/advertisers_main' => 'advertisers#main', :as => :advertiser_home
 
   get '/campaigns' => 'campaigns#all', :as => :campaigns
 

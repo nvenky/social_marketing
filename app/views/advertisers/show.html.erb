@@ -1,12 +1,17 @@
-
 <%- model_class = Advertiser -%>
 <div class="page-header">
     <h1><%= @advertiser.company_name %></h1>
 </div>
 
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:contact_person) %>:</strong></dt>
+  <dd><%= @advertiser.contact_person %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
+  <dd><%= @advertiser.website %></dd>
+</dl>
 
 <% if !@advertiser.campaigns.empty? %>
     <%= render @advertiser.campaigns %>
-<% else%>       
-    <%= link_to 'Create Campaign', new_advertiser_campaign_path(@advertiser) %>     
-<% end %>       
+<% else%>
+    <%= link_to 'Create Campaign', new_advertiser_campaign_path(@advertiser) %>
+<% end %>

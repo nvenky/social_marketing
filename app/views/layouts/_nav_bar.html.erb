@@ -8,6 +8,19 @@
             <a class="navbar-brand" href="/">
                 <i class="fa fa-play-circle"></i>  <span>ImpactMe</span>
             </a>
+            <ul class="nav navbar-nav">
+                <% if signed_in? %>
+                    <% if current_user.usertype == 'influencer' %>
+                        <li><a href="/influencers_main">Home</a></li>
+                        <li><a href="/campaigns">Campaigns</a></li>
+                        <li><a href="/influencers">Influencers</a></li>
+                    <% elsif current_user.usertype == 'advertiser' %>
+                        <li><a href="/advertisers_main">Home</a></li>
+                        <li><a href="/advertisers/1/campaigns">My Campaigns</a></li>
+                        <li><a href="/influencers">Influencers</a></li>
+                    <% end %>
+                <% end %>
+            </ul>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,17 +33,12 @@
 
                 <% if signed_in? %>
                     <% if current_user.usertype == 'influencer' %>
-                        <li><a href="/campaigns">Campaigns</a></li>
-                        <li><a href="/influencers">Influencers</a></li>
+                        <li><a href ="/influencers/<%= current_user.influencer.id %>">My Profile</a></li>
                     <% elsif current_user.usertype == 'advertiser' %>
-                        <li><a href="/advertisers/1/campaigns">My Campaigns</a></li>
-                        <li><a href="/influencers">Influencers</a></li>
+                        <li><a href ="/advertisers/<%= current_user.advertiser.id %>">My Profile</a></li>
                     <% end %>
-                        <li><a href ="">My Profile</a></li>
-                        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-                <% end %>
-
-                <% if !signed_in? %>
+                    <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+                <% elsif !signed_in? %>
                     <li><a class="page-scroll" href="#why">Why?</a></li>
                     <li><a class="page-scroll" href="#pricing">Pricing</a></li>
                     <li><a class="page-scroll" href="#about">About</a></li>

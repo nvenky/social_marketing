@@ -12,6 +12,14 @@ class AdvertisersController < ApplicationController
   def show
   end
 
+  def main
+    @advertiser = Advertiser.all.sample(1).first
+    @recommended_influencers = Influencer.all.sample(3)
+    @previous_campaigns = Campaign.all.sample(3)
+    @influencers_interested;
+    @influencers_invited;
+  end
+
   # GET /advertisers/new
   def new
     @advertiser = Advertiser.new
