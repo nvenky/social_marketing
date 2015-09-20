@@ -15,7 +15,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1.json
   def show        
       shortlisted_influencers = @campaign.shortlisted_influencers
-      sreejay = Influencer.find(2)
+      sreejay = Influencer.where(first_name: 'Sreejay').first
       rec_inf = []
       rec_inf << sreejay unless shortlisted_influencers.member?(sreejay)
       rec_inf << (Influencer.all - shortlisted_influencers).sample(5)
