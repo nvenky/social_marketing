@@ -7,14 +7,18 @@
     <p>Budget: $<%=@campaign.price%></p>
 </div>
 
-<div class='shortlisted_influencers' >
+<div class='shortlisted_influencers row' >
     <h3>Shortlisted influencers</h3>
+    <% if @shortlisted_influencers.empty? %>
+        <p class="alert alert-warning"> No one yet. Time to pick a few influencers</p>
+    <% end %>
+        
     <% @shortlisted_influencers.each do |influencer| %>
         <%= render influencer, influencer_type: 'shortlisted', campaign_id: @campaign.id %>
     <% end %>
 </div>
 <br/>
-<div class='recommender_influencers'>
+<div class='recommender_influencers row'>
     <h3>Recommended influencers</h3>
     <% @recommended_influencers.each do |influencer| %>
         <%= render influencer, influencer_type: 'recommended', campaign_id: @campaign.id %>
