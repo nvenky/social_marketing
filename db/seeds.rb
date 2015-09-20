@@ -14,6 +14,7 @@ Fabricator(:influencer) do
     youtube_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     instagram_followers { [Faker::Number.number(5), Faker::Number.number(4)].sample }
     user { Fabricate(:user, usertype: 'influencer')}
+    minimum_price { [100,500,1000, 300].sample }
 end
 
 Fabricator(:user) do

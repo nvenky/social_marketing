@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920002908) do
+ActiveRecord::Schema.define(version: 20150920012704) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "company_name",   limit: 255
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150920002908) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "user_id",             limit: 4
+    t.integer  "minimum_price",       limit: 4
   end
 
   add_index "influencers", ["user_id"], name: "index_influencers_on_user_id", using: :btree
