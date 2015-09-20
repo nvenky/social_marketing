@@ -30,10 +30,11 @@ Fabricator(:advertiser) do
 end
 
 Fabricator(:campaign) do
+    title { Faker::Company.catch_phrase }
     advertiser { Advertiser.take(3).sample }
     price { Faker::Number.number(4) }
-    description { Faker::Company.catch_phrase }
     industry { Faker::Commerce.department }
+    description { Faker::Lorem.paragraph }
 end
 
 100.times { Fabricate(:influencer) }
