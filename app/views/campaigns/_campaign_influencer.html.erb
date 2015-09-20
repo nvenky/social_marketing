@@ -1,11 +1,13 @@
 <div class="col-xs-12 col-md-4 col-lg-4">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h4 align="center"><%= link_to truncate(campaign.title, length: 25, separator: ' '), advertiser_campaign_path(campaign.advertiser, campaign)%></h4>
+      <h4 align="center"><%= link_to truncate(campaign.title, length: 24, separator: ' '), advertiser_campaign_path(campaign.advertiser, campaign)%></h4>
     </div>
     <br>
     <div class="panel-body">
-      <p>Budget: $<%=campaign.price%></p>
+      <p><%= truncate(campaign.description, length: 60, separator: ' ') %></p>
+      <p style="text-align:right;"><div  class="btn btn-default btn-xs"><%=campaign.industry%></div></p>
+      <p>Price: $<%=campaign.price%></p>
       <div>
         <p style="text-align:center;"><a href="#" class="btn btn-info " role="button">I'm interested</a>
       </div>

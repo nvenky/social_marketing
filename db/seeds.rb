@@ -33,7 +33,7 @@ end
 Fabricator(:campaign) do
     title { Faker::Company.catch_phrase }
     advertiser { Advertiser.take(3).sample }
-    price { Faker::Number.number(4) }
+    price { [Faker::Number.number(3), Faker::Number.number(4)].sample }
     industry { Faker::Commerce.department }
     description { Faker::Lorem.paragraph }
 end
