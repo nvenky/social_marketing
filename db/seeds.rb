@@ -6,10 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Influencer.delete_all
-User.delete_all
-Advertiser.delete_all
+CampaignInfluencer.delete_all
 Campaign.delete_all
+Influencer.delete_all
+Advertiser.delete_all
+User.delete_all
 
 Fabricator(:influencer) do
     first_name { Faker::Name.first_name }
