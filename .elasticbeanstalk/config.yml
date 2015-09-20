@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: impactme-dev
+    environment: impactme
 global:
   application_name: social_marketing
   default_ec2_keyname: webserver
