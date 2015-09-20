@@ -1,13 +1,12 @@
 <div class="col-md-4">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3><%= link_to campaign.title, advertiser_campaign_path(campaign.advertiser, campaign)%></h3>
-    </div>
-    <br>
+  <div class="panel">
     <div class="panel-body">
-          <p>Budget: $<%=campaign.price%></p>
+      <div style='text-align:center'><img class='profile-pic' src="<%= image_url("campaigns/campaign (#{campaign.id}).jpg")%>" alt="Campaign photo"></div>
+      <br>
+      <div style='text-align:center'><h3><%= link_to campaign.title, advertiser_campaign_path(campaign.advertiser, campaign)%></h3></div>
+      <p>Budget: $<%=campaign.price%></p>
       <div>
-          <p><a href="#" class="btn btn-danger" role="button">Withdraw Campaign</a>
+        <p style='text-align:center'><a href="#" class="btn btn-danger" role="button">Withdraw Campaign</a>
       </div>
     </div>
   </div>
