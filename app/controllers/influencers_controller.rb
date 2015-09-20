@@ -7,6 +7,13 @@ class InfluencersController < ApplicationController
     @influencers = Influencer.all
   end
 
+  def main
+    @recommended_campaigns = Campaign.all.sample(3)
+    @previous_campaigns = Campaign.all.sample(3)
+    @campaigns_applied;
+    @campaigns_invited;
+  end
+
   # GET /influencers/1
   # GET /influencers/1.json
   def show

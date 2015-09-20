@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/campaigns' => 'campaigns#all', :as => :campaigns
 
   resources :influencers
+  get '/influencers_main' => 'influencers#main', :as => :influencer_home
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
