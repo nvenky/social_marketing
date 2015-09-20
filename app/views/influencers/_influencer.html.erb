@@ -1,11 +1,7 @@
-<%- model_class = Influencer -%>
-<div class="col-sm-12 col-md-4 col-lg-4">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <img data-src="holder.js/100%x180/" alt="Profile photo">
-    </div>
-    <br>
+<div class="col-md-4">
+  <div style='text-align: center' class="panel">
     <div class="panel-body">
+      <p ><img class='profile-pic' src="<%= image_url("profiles/Profile#{influencer.user.id}.jpg")%>" alt="Profile photo"></p>
       <h4><%= influencer.first_name %> <%= influencer.last_name %></h4>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Facebook followers: <%= influencer.facebook_followers %></li>
@@ -14,7 +10,7 @@
         <li class="list-group-item">Instagram followers: <%= influencer.instagram_followers %></li>
       </ul>
       <div>
-        <p style="text-align:center;"><a href="#" class="btn btn-info">Contact</a></p>
+        <a href="#" class="btn btn-info">Contact me</a>
       </div>
     </div>
   </div>
