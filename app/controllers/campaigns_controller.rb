@@ -4,7 +4,7 @@ class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
+    @campaigns = Advertiser.find(params[:advertiser_id]).campaigns
   end
 
   def all

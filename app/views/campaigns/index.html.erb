@@ -1,7 +1,12 @@
+<%- model_class = Campaign -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <div align="right"><%= link_to t('.new', :default => t("helpers.links.new")),
+      new_advertiser_campaign_path,
+      :class => 'btn btn-primary btn-lg' %></div>
+</div>
 
 <% @campaigns.each do |campaign| %>
     <%= render campaign%>
 <% end %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-    new_advertiser_campaign_path,
-    :class => 'btn btn-primary' %>
+<div class="clearfix">
