@@ -42,7 +42,7 @@ Fabricator(:campaign) do
     advertiser { Advertiser.take(3).sample }
     price { [Faker::Number.number(3), Faker::Number.number(4)].sample }
     industry { Faker::Commerce.department }
-    description { Faker::Lorem.paragraph }
+    description { Faker::Lorem.paragraph[0..250]}
 end
 
 Advertiser.create!({company_name: 'UMate', website: 'www.umate.com.au', contact_person: 'sam.sweeny@umate.com.au'})

@@ -1,15 +1,22 @@
 <div class="page-header">
-    <h1><%=@campaign.description%></h1>
+    <h1><%=@campaign.title%></h1>
 </div>
 
 <div class="panel-body">
+    <p><%=@campaign.description%></p>
     <p>Budget: $<%=@campaign.price%></p>
-
-    <div class='influencers'>
-        <h3>Recommended influencers</h3>
-        <% @recommended_influencers.each do |influencer| %>
-            <%= render influencer %>
-        <% end %>
-    </div>
 </div>
 
+<div class='shortlisted_influencers' >
+    <h3>Shortlisted influencers</h3>
+    <% @shortlisted_influencers.each do |influencer| %>
+        <%= render influencer, influencer_type: 'shortlisted', campaign_id: @campaign.id %>
+    <% end %>
+</div>
+<br/>
+<div class='recommender_influencers'>
+    <h3>Recommended influencers</h3>
+    <% @recommended_influencers.each do |influencer| %>
+        <%= render influencer, influencer_type: 'recommended', campaign_id: @campaign.id %>
+    <% end %>
+</div>

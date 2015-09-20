@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920015329) do
+ActiveRecord::Schema.define(version: 20150920033643) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "company_name",   limit: 255
@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(version: 20150920015329) do
   add_index "campaigns", ["advertiser_id"], name: "index_campaigns_on_advertiser_id", using: :btree
 
   create_table "campaigns_influencers", id: false, force: :cascade do |t|
-    t.integer "campaign_id",   limit: 4, null: false
-    t.integer "influencer_id", limit: 4, null: false
+    t.integer "campaign_id",   limit: 4,   null: false
+    t.integer "influencer_id", limit: 4,   null: false
+    t.string  "state",         limit: 255
   end
 
   add_index "campaigns_influencers", ["campaign_id", "influencer_id"], name: "index_campaigns_influencers_on_campaign_id_and_influencer_id", using: :btree

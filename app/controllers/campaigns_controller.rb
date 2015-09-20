@@ -14,7 +14,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1
   # GET /campaigns/1.json
   def show
-      @recommended_influencers = Influencer.all.sample(3)
+      @recommended_influencers = Influencer.all.sample(6)
+      @shortlisted_influencers = @campaign.shortlisted_influencers
   end
 
   # GET /campaigns/new

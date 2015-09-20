@@ -1,4 +1,5 @@
 class Influencer < ActiveRecord::Base
-  has_and_belongs_to_many :campaigns
+  has_many :campaign_influencers
+  has_many :campaigns, through: :campaign_influencers
   belongs_to :user
 end

@@ -11,7 +11,11 @@
         <li class="list-group-item">Instagram followers: <%= influencer.instagram_followers %></li>
       </ul>
       <div>
-        <a href="#" class="btn btn-info">Contact me</a>
+          <% if influencer_type == 'shortlisted' %>
+            <a href="#" class="btn btn-danger">Remove</a>
+          <% else%>  
+            <a href="<%= new_campaign_influencer_path(campaign_id: campaign_id, influencer_id: influencer.id) %>" class="btn btn-primary">Shortlist me</a>
+          <% end %>  
       </div>
     </div>
   </div>
